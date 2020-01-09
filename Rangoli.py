@@ -58,11 +58,11 @@ def rangoli(n):
 
 alphabetList = [o for o in range(1,27)]
 
-#print("Rangoli:\n",rangoli(3)) # c
-#print("Rangoli:\n",rangoli(4)) # d
-#print("Rangoli:\n",rangoli(5)) # e
-
 rlst = rangoli(3)
+#rlst = rangoli(4)
+#rlst = rangoli(5)
+#rlst = rangoli(6)
+
 for rr in rlst:
     print(rr)
 
