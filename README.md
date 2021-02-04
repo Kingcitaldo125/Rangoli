@@ -72,7 +72,7 @@ YYYYYYYYYYYYYYYYY
 
 ### Rangoli
 
-Running normally, with ``, produces:
+Running normally, with `python Rangoli.py`, produces:
 
 ```
 cols 9
