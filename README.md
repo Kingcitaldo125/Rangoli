@@ -14,10 +14,72 @@ To run the script, simply type `python diamond.py ` followed by one or more of t
 Each of these options require a certain order.
 That order is displayed below:
 
-1. int ex. `3`
-2. str ex. `A` or `AS` or `ASDF` where each string is a valid ASCII string
-3. bool ex. `True`
+1. A Size(int) ex. `3`
+2. A String of letters to print(str) ex. `A` or `AS` or `ASDF` where each string is a valid ASCII string
+3. A boolean of whether or not to override the existing letters in place of random ASCII(bool) ex. `True`
 
 ### Rangoli
 
 To run the script, simply type `python Randgoli.py`.
+
+## Output
+
+### Diamond
+
+Running with `python diamond.py 9 ASD` produces:
+
+```
+        A
+       ASD
+      ASDAS
+     ASDASDA
+    ASDASDASD
+   ASDASDASDAS
+  ASDASDASDASDA
+ ASDASDASDASDASD
+ASDASDASDASDASDAS
+ ASDASDASDASDASD
+  ASDASDASDASDA
+   ASDASDASDAS
+    ASDASDASD
+     ASDASDA
+      ASDAS
+       ASD
+        A
+```
+
+while running with `python diamond.py 9 ASD True` produces something like:
+
+```
+        (
+       ###
+      OOOOO
+     '''''''
+    /////////
+   ]]]]]]]]]]]
+  hhhhhhhhhhhhh
+ iiiiiiiiiiiiiii
+YYYYYYYYYYYYYYYYY
+ ]]]]]]]]]]]]]]]
+  yyyyyyyyyyyyy
+   ggggggggggg
+    +++++++++
+     3333333
+      JJJJJ
+       (((
+        '
+```
+
+### Rangoli
+
+Running normally, with ``, produces:
+
+```
+cols 9
+rows 5
+----c----
+--c-b-c--
+c-b-a-b-c
+--c-b-c--
+----c----
+```
