@@ -11,7 +11,20 @@ class Diamond():
 		return str(self.get())
 
 	def get_line(self, size, i, charr="*"):
-		obj = (" "*(size-i))+(charr*i)+(charr*(i-1))
+		ii = 0
+		iii = 0
+		obj = (" " * (size-i))
+		while ii < i:
+			obj += (charr[iii])
+			ii += 1
+			iii += 1
+			iii = iii % len(charr)
+		ii = 0
+		while ii < i-1:
+			obj += (charr[iii])
+			ii += 1
+			iii += 1
+			iii = iii % len(charr)
 		obj += "\n"
 		return obj
 
