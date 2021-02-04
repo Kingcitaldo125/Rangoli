@@ -1,38 +1,60 @@
-def diamond(size=6):
-    
-    items=["#", "/", "*"]
-    
-    space=" "
+import sys
+import random
 
-    rows=[]
 
-    n = int(size)
-    nspace = n-1
-    nPounds=1
-    
-    ii=0
-    for i in range(n):
-        front = ""
-        front += space*nspace
-        
-        front += items[ii]*nPounds
-        
-        rows.append(front)
-            
-        nPounds += 2
-        nspace -= 1
-        ii += 1
-        ii = ii % len(items)
+class Diamond():
+	def __init__(self, size, randomm=False):
+		self.size=size
+		self.randomm = randomm
 
-    for r in range(len(rows)-2,-1,-1):
-        rows.append(rows[r])
-    
-    return rows
+	def __str__(self):
+		return str(self.get())
 
-dArr=[]
+	def get_line(self, size, i, charr="*"):
+		obj = (" "*(size-i))+(charr*i)+(charr*(i-1))
+		obj += "\n"
+		return obj
 
-dArr.append(diamond(10))
-    
-for d in dArr:
-    for dd in d:
-        print(dd)
+	def get_rand_line(self, size, i, seed=random.randrange(33,127)):
+		obj = (" "*(size-i))+(chr(seed)*i)+(chr(seed)*(i-1))
+		obj += "\n"
+		return obj
+
+	def get(self, true_random=False, charr="*"):
+		buff=""
+		if self.randomm:
+			for i in range(size):
+				buff += self.get_rand_line(size, i)
+			for i in range(size, 0, -1):
+				buff += self.get_rand_line(size, i)
+		else:
+			for i in range(size):
+				if true_random:
+					buff += self.get_rand_line(size, i, random.randrange(33,127))
+				else:
+					buff += self.get_line(size, i, charr)
+			for i in range(size, 0, -1):
+				if true_random:
+					buff += self.get_rand_line(size, i, random.randrange(33,127))
+				else:
+					buff += self.get_line(size, i, charr)
+		return buff
+
+
+# defaults
+size = 5
+true_rand = False
+charr="*"
+
+if len(sys.argv) > 1:
+	size = int(sys.argv[1])
+
+if len(sys.argv) > 2:
+	charr = str(sys.argv[2])
+
+if len(sys.argv) > 3:
+	true_rand = bool(str(sys.argv[3]))
+
+if __name__ == "__main__":
+	dd = Diamond(size)
+	print(dd.get(true_rand, charr))  # prints the diamond
